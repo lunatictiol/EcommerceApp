@@ -7,19 +7,47 @@
 
 import Foundation
 final class ProductsViewModel:ObservableObject{
-    func getUsers() async{
+    
+ 
+    func getProducts() async -> [Product] {
         do{
             let products = try await WebServicesManager.getProducts()
-            print(products)
+          
+                return products
+            
             
         }
         catch(let error){
-            print(error.localizedDescription)
             
+            print(error.localizedDescription)
+            return []
             
         }
         
     }
+    
+    func getImages() async -> [Images]{
+        do{
+            let images = try await WebServicesManager.getImagesForSlider()
+  
+                return images
+            
+            
+        }
+        catch(let error){
+            print(error.localizedDescription)
+          return []
+        
+            
+        }
+        
+    }
+    
+
+    
+    
+    
+    
     
     
 }
