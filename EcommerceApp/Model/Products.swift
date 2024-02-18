@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product:Decodable {
+struct Product:Decodable ,Identifiable{
     let id: Int
     let title: String
     let price: Double
@@ -23,3 +23,7 @@ struct Rating :Decodable {
     let count: Int
 }
 
+struct Images:Decodable,Identifiable{
+    let id: Int
+    let image: String
+}
