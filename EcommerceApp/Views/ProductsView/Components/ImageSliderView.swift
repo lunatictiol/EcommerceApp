@@ -6,64 +6,63 @@
 //
 
 import SwiftUI
+//auto scroll not working
+
 
 struct ImageSliderView: View {
-    @State private var currentIndex = 0
-     var slides : [Images]?
+    @State private var currentIndex:Int = 0
+    @ObservedObject var vm = ProductsViewModel()
     
     var body: some View {
         ZStack(alignment: .bottomLeading ) {
-            if let slides = slides{
+         
                 ZStack(alignment: .trailing){
-                    
-                    AsyncImage(url: URL(string: slides[currentIndex].image), content: { image in
-                        image
-                            .resizable()
-                            .scaledToFit()
+                     ScrollViewReader{ scrollView in
+                        ScrollView(.horizontal,showsIndicators: false){
+                            HStack{
+                            ForEach(vm.images){ image in
+                                AsyncImage(url: URL(string: image.image), content: { image in
+                                    
+                                    image
+                                        .resizable()
+                                        .scaledToFit()
+                                }, placeholder: {
+                                    ProgressView()
+                                })
+                                .frame(width: 300, height:180)
+                                .clipShape(RoundedRectangle(cornerRadius: 15))
+                            }
+                            }.frame(width: .infinity, height:180)
+                        }
                         
-                        
-                        
-                    }, placeholder: {
-                        ProgressView()
-                        
-                    })
-                    .frame(width: .infinity, height:180)
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                    
-                    
+                     }
                 }
                 
-                HStack{
-                    ForEach(0..<slides.count ,id:\.self){index in
-                        Circle()
-                            .fill(self.currentIndex == index ? Color("SPrimary") : Color("SSecondary") )
-                            .frame(width: 10, height: 10)
-                        
-                    }
-                    
-                }
+//            HStack{
+//                ForEach(0..<(vm.images.count ) ,id:\.self){index in
+//                    Circle()
+//                        .fill(self.currentIndex == index ? Color("SPrimary") : Color("SSecondary") )
+//                        .frame(width: 10, height: 10)
+//                    
+//                }
+//                
+//            }
                 
-            }
-            else{
-                RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
-                    .frame(width: .infinity, height:180)
-                    .foregroundStyle(Color("SSecondary"))
-                    .overlay {
-                        ProgressView()
-                    }
-                
-            }
+            
             
         }.padding()
+            .frame(width: .infinity, height:180)
             .onAppear{
-                Timer.scheduledTimer(withTimeInterval:5 , repeats: true, block: { timer in
-                    if self.currentIndex + 1 == 5{
-                        self.currentIndex = 0
-                    }
-                    else{
-                        self.currentIndex += 1
-                    }
-                })
+//                Timer.scheduledTimer(withTimeInterval:3 , repeats: true, block: { timer in
+//                    DispatchQueue.main.async {
+//                        if self.currentIndex + 1 == vm.images.count {
+//                            
+//                                            self.currentIndex = 0
+//                                        } else {
+//                                            self.currentIndex += 1
+//                                        }
+//                                    }
+//                })
             }
         
         

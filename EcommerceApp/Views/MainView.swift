@@ -21,9 +21,10 @@ struct MainView: View {
                 .background()
                 .tag(Tab.Home)
             
-         Text("Catagories")
+         CategoriesView()
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,maxHeight:.infinity)
                 .background()
+                .tint(Color("SPrimary"))
                 .tag(Tab.Catagories)
             
       

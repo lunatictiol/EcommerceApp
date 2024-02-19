@@ -21,7 +21,7 @@ struct SearchBarView: View {
                 .bold().foregroundStyle(Color("SPrimary"))
             HStack {
                 HStack{
-                    Image(systemName: "cart.badge.questionmark")
+                    Image(systemName: "cart")
                         .foregroundStyle(Color("SPrimary"))
                     TextField("Search Products", text: $search)
                         .foregroundStyle(Color("SPrimary"))

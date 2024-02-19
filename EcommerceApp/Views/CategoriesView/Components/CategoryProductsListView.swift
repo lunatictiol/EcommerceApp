@@ -8,11 +8,35 @@
 import SwiftUI
 
 struct CategoryProductsListView: View {
+    @State var category:String
+    @ObservedObject var vm = CategoriesViewModel()
+    @State var products:[Product]?
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            VStack{
+                if let products = products{
+                  ScrollView   {
+                      LazyVGrid(columns: [GridItem(.flexible(),spacing: 190) , GridItem(.flexible(),spacing: 0) ], spacing:30)  {
+                            ForEach(products) { product in
+                                
+                                ProductCardView(product: product)
+                            }
+                      }.padding(.horizontal, 100)
+                    }
+                    
+                    
+                }
+            }.task {
+                products = await vm.getcategoryProducts(category: category)
+        }
+        }
+        
     }
+        
+    
+    
 }
 
 #Preview {
-    CategoryProductsListView()
+    CategoryProductsListView(category: "electronics")
 }

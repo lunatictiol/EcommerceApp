@@ -21,6 +21,10 @@
 		18B7F5322B81E93800EF15C4 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7F5312B81E93800EF15C4 /* Products.swift */; };
 		18B7F5342B81F29A00EF15C4 /* ProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7F5332B81F29A00EF15C4 /* ProductsView.swift */; };
 		18B7F5372B81F2BC00EF15C4 /* ProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B7F5362B81F2BC00EF15C4 /* ProductsViewModel.swift */; };
+		18BABB2C2B8385C3001ACD67 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BABB2B2B8385C3001ACD67 /* CategoriesView.swift */; };
+		18BABB2F2B838627001ACD67 /* CategoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BABB2E2B838627001ACD67 /* CategoryCardView.swift */; };
+		18BABB312B838A13001ACD67 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BABB302B838A13001ACD67 /* CategoriesViewModel.swift */; };
+		18BABB332B83BA29001ACD67 /* CategoryProductsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BABB322B83BA29001ACD67 /* CategoryProductsListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,10 @@
 		18B7F5312B81E93800EF15C4 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		18B7F5332B81F29A00EF15C4 /* ProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsView.swift; sourceTree = "<group>"; };
 		18B7F5362B81F2BC00EF15C4 /* ProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewModel.swift; sourceTree = "<group>"; };
+		18BABB2B2B8385C3001ACD67 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		18BABB2E2B838627001ACD67 /* CategoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardView.swift; sourceTree = "<group>"; };
+		18BABB302B838A13001ACD67 /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
+		18BABB322B83BA29001ACD67 /* CategoryProductsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProductsListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +120,7 @@
 		18B7F5282B81E68800EF15C4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				18BABB2A2B83859F001ACD67 /* CategoriesView */,
 				18B7F5352B81F2A300EF15C4 /* ProductsView */,
 				18A14A0F2B80FBA400AA9ABB /* MainView.swift */,
 			);
@@ -143,6 +152,25 @@
 				18B7F5362B81F2BC00EF15C4 /* ProductsViewModel.swift */,
 			);
 			path = ProductsView;
+			sourceTree = "<group>";
+		};
+		18BABB2A2B83859F001ACD67 /* CategoriesView */ = {
+			isa = PBXGroup;
+			children = (
+				18BABB2D2B838600001ACD67 /* Components */,
+				18BABB2B2B8385C3001ACD67 /* CategoriesView.swift */,
+				18BABB302B838A13001ACD67 /* CategoriesViewModel.swift */,
+			);
+			path = CategoriesView;
+			sourceTree = "<group>";
+		};
+		18BABB2D2B838600001ACD67 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				18BABB2E2B838627001ACD67 /* CategoryCardView.swift */,
+				18BABB322B83BA29001ACD67 /* CategoryProductsListView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,10 +243,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18BABB312B838A13001ACD67 /* CategoriesViewModel.swift in Sources */,
+				18BABB2F2B838627001ACD67 /* CategoryCardView.swift in Sources */,
+				18BABB332B83BA29001ACD67 /* CategoryProductsListView.swift in Sources */,
 				18416FB62B820E7200084D8B /* ImageSliderView.swift in Sources */,
 				18B7F5342B81F29A00EF15C4 /* ProductsView.swift in Sources */,
 				18B7F52E2B81E79100EF15C4 /* WebServicesManager.swift in Sources */,
 				18B7F5372B81F2BC00EF15C4 /* ProductsViewModel.swift in Sources */,
+				18BABB2C2B8385C3001ACD67 /* CategoriesView.swift in Sources */,
 				18A14A102B80FBA400AA9ABB /* MainView.swift in Sources */,
 				18B7F5302B81E81700EF15C4 /* ErrorCases.swift in Sources */,
 				18416FB82B821EA400084D8B /* SearchBarView.swift in Sources */,

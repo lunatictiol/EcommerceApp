@@ -27,3 +27,4 @@ struct Images:Decodable,Identifiable{
     let id: Int
     let image: String
 }
+

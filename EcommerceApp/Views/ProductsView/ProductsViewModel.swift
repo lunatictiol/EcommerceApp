@@ -7,39 +7,42 @@
 
 import Foundation
 final class ProductsViewModel:ObservableObject{
-    
+    @Published var products = [Product]()
+    @Published var images = [Images]()
  
-    func getProducts() async -> [Product] {
-        do{
-            let products = try await WebServicesManager.getProducts()
-          
-                return products
-            
-            
-        }
-        catch(let error){
-            
-            print(error.localizedDescription)
-            return []
-            
-        }
+    init(){
+      
+            getProducts()
+            getImages()
         
     }
     
-    func getImages() async -> [Images]{
-        do{
-            let images = try await WebServicesManager.getImagesForSlider()
-  
-                return images
-            
-            
-        }
-        catch(let error){
-            print(error.localizedDescription)
-          return []
+    func getProducts()   {
         
+            Task{
+                let products = try await WebServicesManager.getProducts()
+                DispatchQueue.main.async {
+                    self.products = products
+                }
+            }
             
+               
+            
+        
+          
+        
+    }
+    
+    func getImages() {
+        Task{
+            let images = try await WebServicesManager.getImagesForSlider()
+            DispatchQueue.main.async {
+                self.images = images
+            }
         }
+            
+            
+      
         
     }
     

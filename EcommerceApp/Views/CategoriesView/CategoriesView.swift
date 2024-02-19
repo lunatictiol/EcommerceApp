@@ -8,13 +8,36 @@
 import SwiftUI
 
 struct CategoriesView: View {
+  
+    @ObservedObject var vm = CategoriesViewModel()
+    
+    
     var body: some View {
         NavigationView{
             VStack{
-                Text("cat")
+                AppBarView()
+                if let categories = vm.categories {
+                    ScrollView{
+                        ForEach(categories, id: \.self ){category in
+                            NavigationLink {
+                            CategoryProductsListView(category: category)
+                            } label: {
+                                CategoryCardView(catagory: category)
+                            }
+                            
+                            
+                        }
+                    }
+                    } else{
+                    ProgressView()
+                }
+                Spacer()
             }
             
             
+            
+        }.task {
+           
         }
     }
 }

@@ -12,7 +12,7 @@ struct ProductCardView: View {
     
     var body: some View {
         ZStack(alignment:.bottomTrailing ){
-            RoundedRectangle(cornerRadius: /*@START_MENU_TOKEN@*/25.0/*@END_MENU_TOKEN@*/)
+            RoundedRectangle(cornerRadius: 10.0)
                 .foregroundStyle(Color("SSecondary"))
             VStack(alignment:.leading){
                 AsyncImage(url: URL(string:product?.image ?? ""),content: { Image in
@@ -21,7 +21,7 @@ struct ProductCardView: View {
                 }, placeholder: {
                     ProgressView()
                 })
-                .frame(width: 175,height: 160)
+                .frame(width: 155,height: 160)
                 Text(product?.title ?? "").textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
                     .font(.headline)
                 Text(product?.category ?? "")
@@ -50,18 +50,26 @@ struct ProductCardView: View {
             })
             
         }
-        .frame(width: 185,height: 260)
+        .frame(width: 150,height: 260)
     }
 }
 
 func ratings(rate:Double)->Int{
     switch rate{
-    case 1..<2 :
-        return 1
-    case 2..<3 :
+    case 0.5...1 :
+     return 1
+    case 1..<1.5 :
+     return 1
+    case 1.5...2 :
+    return 2
+    case 2..<2.5 :
      return 2
-    case 3..<4 :
+    case 2.5...3 :
      return 3
+    case 3..<3.5 :
+     return 3
+    case 3.5...4 :
+     return 4
     case 4..<4.5 :
      return 4
     case 4.5...5 :
@@ -79,5 +87,5 @@ func ratings(rate:Double)->Int{
 
 #Preview {
     ProductCardView(product: Product(id: 1, title: "title", price: 22, description: "dddd", category: "cat", image: "",
-                                     rating: Rating(rate: 5, count: 2)))
+                                     rating: Rating(rate: 0.6, count: 2)))
 }
