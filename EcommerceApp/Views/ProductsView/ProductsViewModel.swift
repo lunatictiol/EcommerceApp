@@ -9,6 +9,7 @@ import Foundation
 final class ProductsViewModel:ObservableObject{
     @Published var products = [Product]()
     @Published var images = [Images]()
+    @Published var searchResult:Product?
  
     init(){
       
@@ -43,6 +44,19 @@ final class ProductsViewModel:ObservableObject{
             
             
       
+        
+    }
+    
+    //need to fix this
+    func getproductDetails(searchKey: String) {
+        for product in products {
+            if let result = product.title.range(of:searchKey){
+                self.searchResult = product
+                return
+            }
+        }
+        
+        self.searchResult = nil
         
     }
     

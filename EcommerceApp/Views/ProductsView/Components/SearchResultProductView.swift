@@ -8,11 +8,25 @@
 import SwiftUI
 
 struct SearchResultProductView: View {
+    @State var searchKey:String
+    @ObservedObject var vm=ProductsViewModel()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            if let result = vm.searchResult{
+                Text(result.title)
+                
+                
+            }
+            else{
+                Text("product not found")
+            }
+            
+        }.onAppear{
+            vm.getproductDetails(searchKey: searchKey)
+        }
     }
 }
 
 #Preview {
-    SearchResultProductView()
+    SearchResultProductView(searchKey: "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet")
 }

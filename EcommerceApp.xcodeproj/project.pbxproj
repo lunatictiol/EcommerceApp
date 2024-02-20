@@ -25,6 +25,7 @@
 		18BABB2F2B838627001ACD67 /* CategoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BABB2E2B838627001ACD67 /* CategoryCardView.swift */; };
 		18BABB312B838A13001ACD67 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BABB302B838A13001ACD67 /* CategoriesViewModel.swift */; };
 		18BABB332B83BA29001ACD67 /* CategoryProductsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BABB322B83BA29001ACD67 /* CategoryProductsListView.swift */; };
+		18BABB352B83C61A001ACD67 /* SearchResultProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BABB342B83C61A001ACD67 /* SearchResultProductView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		18BABB2E2B838627001ACD67 /* CategoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardView.swift; sourceTree = "<group>"; };
 		18BABB302B838A13001ACD67 /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
 		18BABB322B83BA29001ACD67 /* CategoryProductsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryProductsListView.swift; sourceTree = "<group>"; };
+		18BABB342B83C61A001ACD67 /* SearchResultProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultProductView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				18416FB72B821EA400084D8B /* SearchBarView.swift */,
 				18416FB92B823E4100084D8B /* ProductCardView.swift */,
 				18416FBB2B82440D00084D8B /* AppBarView.swift */,
+				18BABB342B83C61A001ACD67 /* SearchResultProductView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				18B7F5342B81F29A00EF15C4 /* ProductsView.swift in Sources */,
 				18B7F52E2B81E79100EF15C4 /* WebServicesManager.swift in Sources */,
 				18B7F5372B81F2BC00EF15C4 /* ProductsViewModel.swift in Sources */,
+				18BABB352B83C61A001ACD67 /* SearchResultProductView.swift in Sources */,
 				18BABB2C2B8385C3001ACD67 /* CategoriesView.swift in Sources */,
 				18A14A102B80FBA400AA9ABB /* MainView.swift in Sources */,
 				18B7F5302B81E81700EF15C4 /* ErrorCases.swift in Sources */,
