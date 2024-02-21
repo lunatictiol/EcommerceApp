@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 @main
 struct EcommerceAppApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
-        }
+        }.modelContainer(for: Cart.self)
     }
 }

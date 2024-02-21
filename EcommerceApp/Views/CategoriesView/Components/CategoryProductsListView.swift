@@ -17,7 +17,7 @@ struct CategoryProductsListView: View {
             VStack{
               
                   ScrollView   {
-                      LazyVGrid(columns: [GridItem(.flexible(),spacing: 190) , GridItem(.flexible(),spacing: 0) ], spacing:30)  {
+                      LazyVGrid(columns: [GridItem(.flexible(),spacing: 190) , GridItem(.flexible(),spacing: 0) ], spacing:50)  {
                           ForEach(vm.categoryProducts) { product in
                                 NavigationLink {
                                     ProductsDetailsView(product: product)
@@ -64,5 +64,5 @@ struct CategoryProductsListView: View {
 }
 
 #Preview {
-    CategoryProductsListView(category: "electronics")
+    CategoryProductsListView(category: "electronics").environmentObject(CategoriesViewModel())
 }

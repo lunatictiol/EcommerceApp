@@ -32,7 +32,7 @@ struct ImageSliderView: View {
                                 .frame(width: 300, height:180)
                                 .clipShape(RoundedRectangle(cornerRadius: 15))
                             }
-                            }.frame(width: .infinity, height:180)
+                            }.frame(maxWidth: .infinity, minHeight:180)
                         }
                         
                      }
@@ -51,7 +51,7 @@ struct ImageSliderView: View {
             
             
         }.padding()
-            .frame(width: .infinity, height:180)
+            .frame(maxWidth: .infinity, minHeight:180)
             .onAppear{
 //                Timer.scheduledTimer(withTimeInterval:3 , repeats: true, block: { timer in
 //                    DispatchQueue.main.async {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductsDetailsView: View {
     @State var product:Product
+    @Environment(\.modelContext) private var context
     var body: some View {
         ScrollView(showsIndicators:false) {
             VStack(alignment:.leading){
@@ -35,7 +36,11 @@ struct ProductsDetailsView: View {
                         .bold()
                         .font(.title)
                     Spacer()
-                    Button(action: {}, label: {
+                    Button(action: {
+                        let cart = Cart(title: product.title, price: product.price, category: product.category, image: product.image)
+                        context.insert(cart)
+                        
+                    }, label: {
                         Image(systemName: "plus.circle.fill")
                             .resizable()
                             .frame(width: 35,height: 35)

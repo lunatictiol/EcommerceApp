@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ProductCardView: View {
     @State var product:Product?
+    @Environment(\.modelContext) private var context
     
     var body: some View {
         ZStack(alignment:.bottomTrailing ){
@@ -41,7 +42,14 @@ struct ProductCardView: View {
  
                 
             }.padding()
-            Button(action: {}, label: {
+            Button(action: {
+                if let product = product{
+                    let cart = Cart(title: product.title, price: product.price, category: product.category, image: product.image)
+                    context.insert(cart)
+                }
+                
+                
+            }, label: {
                 Image(systemName: "plus.circle.fill")
                     .resizable()
                     .frame(width: 35,height: 35)

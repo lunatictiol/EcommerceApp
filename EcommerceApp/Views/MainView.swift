@@ -12,6 +12,9 @@ struct MainView: View {
     @Namespace var animation
     @State private var productViewModel  = ProductsViewModel()
     @State private var categoryViewModel = CategoriesViewModel()
+  
+    
+    
     init(){
         UITabBar.appearance().isHidden = true
     }
@@ -33,7 +36,7 @@ struct MainView: View {
             
       
             
-         Text("Cart")
+        CartView()
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,maxHeight:.infinity)
                 .background()
                 .tag(Tab.Cart)
