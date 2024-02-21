@@ -9,18 +9,20 @@ import SwiftUI
 
 struct CategoriesView: View {
   
-    @ObservedObject var vm = CategoriesViewModel()
+    @EnvironmentObject var vm : CategoriesViewModel
     
     
     var body: some View {
         NavigationView{
             VStack{
                 AppBarView()
-                if let categories = vm.categories {
+               
                     ScrollView{
-                        ForEach(categories, id: \.self ){category in
+                        ForEach(vm.categories, id: \.self ){category in
                             NavigationLink {
                             CategoryProductsListView(category: category)
+                                    .navigationBarBackButtonHidden(true)
+                                    .environmentObject(vm)
                             } label: {
                                 CategoryCardView(catagory: category)
                             }
@@ -28,9 +30,7 @@ struct CategoriesView: View {
                             
                         }
                     }
-                    } else{
-                    ProgressView()
-                }
+                    
                 Spacer()
             }
             
@@ -43,5 +43,5 @@ struct CategoriesView: View {
 }
 
 #Preview {
-    CategoriesView()
+    CategoriesView().environmentObject(CategoriesViewModel())
 }

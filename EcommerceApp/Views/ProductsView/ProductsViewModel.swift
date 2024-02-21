@@ -21,9 +21,16 @@ final class ProductsViewModel:ObservableObject{
     func getProducts()   {
         
             Task{
-                let products = try await WebServicesManager.getProducts()
-                DispatchQueue.main.async {
-                    self.products = products
+                
+                do{
+                    
+                    let products = try await WebServicesManager.getProducts()
+                    DispatchQueue.main.async {
+                        self.products = products
+                    }
+                }
+                catch(let error){
+                    print(error.localizedDescription)
                 }
             }
             
@@ -36,9 +43,15 @@ final class ProductsViewModel:ObservableObject{
     
     func getImages() {
         Task{
-            let images = try await WebServicesManager.getImagesForSlider()
-            DispatchQueue.main.async {
-                self.images = images
+            
+            do{
+                let images = try await WebServicesManager.getImagesForSlider()
+                DispatchQueue.main.async {
+                    self.images = images
+                }
+            }
+            catch(let error){
+                print(error.localizedDescription)
             }
         }
             
@@ -50,7 +63,7 @@ final class ProductsViewModel:ObservableObject{
     //need to fix this
     func getproductDetails(searchKey: String) {
         for product in products {
-            if let result = product.title.range(of:searchKey){
+            if product.title.range(of:searchKey) != nil{
                 self.searchResult = product
                 return
             }

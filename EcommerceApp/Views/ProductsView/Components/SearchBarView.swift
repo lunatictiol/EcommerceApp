@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchBarView: View {
     @State  var search:String=""
+    @EnvironmentObject var vm:ProductsViewModel
     var body: some View {
         
         
@@ -37,6 +38,7 @@ struct SearchBarView: View {
                 
                 NavigationLink {
                     SearchResultProductView(searchKey: search)
+                        .environmentObject(vm)
                 } label: {
                     
                     Image(systemName: "magnifyingglass")

@@ -10,6 +10,8 @@ import SwiftUI
 struct MainView: View {
     @State var currentTab:Tab = .Home
     @Namespace var animation
+    @State private var productViewModel  = ProductsViewModel()
+    @State private var categoryViewModel = CategoriesViewModel()
     init(){
         UITabBar.appearance().isHidden = true
     }
@@ -20,12 +22,14 @@ struct MainView: View {
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,maxHeight:.infinity)
                 .background()
                 .tag(Tab.Home)
-            
+                .tint(Color("SPrimary"))
+                .environmentObject(productViewModel)
          CategoriesView()
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/,maxHeight:.infinity)
                 .background()
                 .tint(Color("SPrimary"))
                 .tag(Tab.Catagories)
+                .environmentObject(categoryViewModel)
             
       
             

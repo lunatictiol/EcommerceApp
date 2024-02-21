@@ -9,26 +9,52 @@ import SwiftUI
 
 struct CategoryProductsListView: View {
     @State var category:String
-    @ObservedObject var vm = CategoriesViewModel()
-    @State var products:[Product]?
+    @EnvironmentObject var vm : CategoriesViewModel
+   
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationView {
             VStack{
-                if let products = products{
+              
                   ScrollView   {
                       LazyVGrid(columns: [GridItem(.flexible(),spacing: 190) , GridItem(.flexible(),spacing: 0) ], spacing:30)  {
-                            ForEach(products) { product in
+                          ForEach(vm.categoryProducts) { product in
+                                NavigationLink {
+                                    ProductsDetailsView(product: product)
+                                } label: {
+                                    
+                                    ProductCardView(product: product)
+                                }.tint(.black)
+
                                 
-                                ProductCardView(product: product)
                             }
                       }.padding(.horizontal, 100)
                     }
                     
                     
+                
+            }.onAppear{
+                vm.getcategoryProducts(category: category)
+                
+            }
+            .toolbar{
+                ToolbarItem(placement: .navigation) {
+                    HStack {
+                        Button(action: {
+                          dismiss()
+
+
+                        }, label: {
+                          Image(systemName: "chevron.left")
+                    })
+                     AppBarView()
+                        
+                    }
+                    .padding(.bottom,20)
                 }
-            }.task {
-                products = await vm.getcategoryProducts(category: category)
-        }
+                
+            }
+         
         }
         
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductsView: View {
-    @ObservedObject var vm = ProductsViewModel()
+    @EnvironmentObject var vm : ProductsViewModel
   
  
     var body: some View {
@@ -16,7 +16,9 @@ struct ProductsView: View {
             VStack{
                 AppBarView()
                 SearchBarView()
+                    .environmentObject(vm)
                 ImageSliderView()
+                    .environmentObject(vm)
                 
                
                 HStack{
@@ -30,9 +32,15 @@ struct ProductsView: View {
                         
                         HStack(spacing:40){
                             ForEach(vm.products){ product in
-                             
-                                ProductCardView(product: product )
-                                    .padding(.horizontal,6)
+                                NavigationLink {
+                                    ProductsDetailsView(product: product)
+                                } label: {
+                                    ProductCardView(product: product )
+                                        .padding(.horizontal,6)
+                                    
+                                }.tint(.black)
+
+                                
                             }
                         }.padding()
                     
@@ -52,5 +60,5 @@ struct ProductsView: View {
 }
 
 #Preview {
-    ProductsView()
+    ProductsView().environmentObject(ProductsViewModel())
 }

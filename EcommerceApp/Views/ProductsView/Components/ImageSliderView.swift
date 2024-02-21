@@ -11,7 +11,7 @@ import SwiftUI
 
 struct ImageSliderView: View {
     @State private var currentIndex:Int = 0
-    @ObservedObject var vm = ProductsViewModel()
+    @EnvironmentObject var vm :ProductsViewModel
     
     var body: some View {
         ZStack(alignment: .bottomLeading ) {
@@ -70,5 +70,5 @@ struct ImageSliderView: View {
 }
 
 #Preview {
-    ImageSliderView()
+    ImageSliderView().environmentObject(ProductsViewModel())
 }

@@ -9,24 +9,36 @@ import SwiftUI
 
 struct SearchResultProductView: View {
     @State var searchKey:String
-    @ObservedObject var vm=ProductsViewModel()
+    @EnvironmentObject var vm: ProductsViewModel
     var body: some View {
         VStack{
             if let result = vm.searchResult{
-                Text(result.title)
-                
-                
+                ProductsDetailsView(product: result)
             }
             else{
-                Text("product not found")
+                Text("No Product Found")
+                
             }
             
-        }.onAppear{
+            
+        }
+        .padding()
+        .onAppear{
             vm.getproductDetails(searchKey: searchKey)
         }
     }
 }
 
 #Preview {
-    SearchResultProductView(searchKey: "John Hardy Women's Legends Naga Gold & Silver Dragon Station Chain Bracelet")
+    SearchResultProductView(searchKey: "John Hardy").environmentObject(ProductsViewModel())
 }
+
+//
+//if let result = vm.searchResult{
+//    Text(result.title)
+//    
+//    
+//}
+//else{
+//    Text("product not found")
+//}

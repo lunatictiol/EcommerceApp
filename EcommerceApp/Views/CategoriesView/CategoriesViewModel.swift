@@ -7,8 +7,8 @@
 
 import Foundation
 final class CategoriesViewModel:ObservableObject{
-    @Published var categories : [String]?
-   
+    @Published var categories       = [String] ()
+    @Published var categoryProducts = [Product]()
     
     init() {
     getcategories()
@@ -25,20 +25,29 @@ final class CategoriesViewModel:ObservableObject{
        
         
     }
-    func getcategoryProducts(category : String ) async -> [Product] {
-        do{
-            let categoryProducts = try await WebServicesManager.getCategoryProducts(category: category )
-            return categoryProducts
+    func getcategoryProducts(category : String ) {
+      
+            Task{
+                
+                do{
+                    let categoryProducts = try await WebServicesManager.getCategoryProducts(category: category )
+                    DispatchQueue.main.async {
+                        self.categoryProducts = categoryProducts
+                    }
+                }
+                    catch(let error){
+                        print(error.localizedDescription)
+                        
+                    }
+                }
+                
+            }
             
-        }
-        catch(let error){
-            print(error.localizedDescription)
-            return[]
-        }
-            
+
+          
         
        
         
     }
     
-}
+
