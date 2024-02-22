@@ -24,8 +24,10 @@ An e-commerce iOS application developed using SwiftUI and integrated with the Fa
 - SwiftUI and Apple's development tools for making the development process smoother.
 - Contributors who have helped improve and maintain the SwiftData project.
   
-![](images/image1.jpeg)
-![](images/image2.jpeg)
-![](images/image3.jpeg)
-![](images/image4.jpeg)
-![](images/image5.jpeg)
+![](images/image1.png)
+![](images/image2.png)
+![](images/image3.png)
+![](images/image4.png)
+![](images/image5.png)
+![](images/image6.png)
+![](images/image7.png)
